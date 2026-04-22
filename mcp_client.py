@@ -11,7 +11,6 @@ from langchain.agents import create_agent
 # ✅ use variável de ambiente (NÃO hardcode)
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
-print("API KEY:", os.getenv("GEMINI_API_KEY"))
 os.environ["GEMINI_API_KEY"] = api_key  
 
 
