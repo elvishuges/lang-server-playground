@@ -3,15 +3,18 @@ import asyncio
 import json
 import os
 
+from dotenv import load_dotenv
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_agent
 
 # ✅ use variável de ambiente (NÃO hardcode)
-api_key = os.getenv("GOOGLE_API_KEY")
-os.environ["GOOGLE_API_KEY"] = api_key  
+load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
+print("API KEY:", os.getenv("GEMINI_API_KEY"))
+os.environ["GEMINI_API_KEY"] = api_key  
 
-# Initialize Gemini model
+
 model = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
     temperature=0
